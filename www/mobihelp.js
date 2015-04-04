@@ -82,13 +82,16 @@ Mobihelp.ShowRatingPrompt= function (success,fail)
 *
 * @method SetConf
 * @param {Object} conf - JSON conf object
-*                           {'AppStoreReviewUrl': (string),     //Android only
-*                            'FeedbackType': (string),          // "ANONYMOUS" , "NAME_AND_EMAIL_REQUIRED", "NAME_REQUIRED" (Same as FEEDBACK_TYPE_NAME_REQUIRED_AND_EMAIL_OPTIONAL in iOS)
-*                            'LaunchCountForReviewPrompt': null,
-*                            'PrefetchSolutions': null,
-*                            'AutoReply': null,"+
-*                            'EnhancedPrivacyModeEnabled': null
+*<pre>
+*     
+*                           {'AppStoreReviewUrl': (string),         //Android only
+*                            'FeedbackType': (string),              // "ANONYMOUS" , "NAME_AND_EMAIL_REQUIRED", "NAME_REQUIRED" (Same as FEEDBACK_TYPE_NAME_REQUIRED_AND_EMAIL_OPTIONAL in iOS)
+*                            'LaunchCountForReviewPrompt': (number),// Number of launches before rate prompt is shown
+*                            'PrefetchSolutions': (boolean),        // pre-load solutions
+*                            'AutoReply': (boolean),                // Show an auto reply when a ticket is submited
+*                            'EnhancedPrivacyModeEnabled': (boolean)// Enhanced Privacy Mode
 *                            }
+*</pre>
 * @param {Function} success - Function to callback if Feedback screen is opened successfully 
 * @param {Function} fail - Function to callback if Feedback screen opening failed
 */
@@ -98,23 +101,28 @@ Mobihelp.SetConf= function (conf,success,fail)
                      cordova.exec(success,fail, 'Wrap', 'setConf',[conf]);}
 
 /**
-* Opens mobihelp Feedback screen
+* Gets configuration value for respective keys
 *
-* @method Feedback
-* @param {Function} success - Function to callback if Feedback screen is opened successfully 
-* @param {Function} fail - Function to callback if Feedback screen opening failed
-*/
+* @method GetConf
+* @param {String} key - Get config value corresponding to "key". This could be "AppStoreReviewUrl","FeedbackType","LaunchCountForReviewPrompt","PrefetchSolutions","AutoReply" or "EnhancedPrivacyModeEnabled"
+* @param {Function} success - Function to callback if a configuration value is obtained successfully (*required)
+* @param {Function} fail - Function to callback if method fails
+* @throws {Exception} 
+*<pre>
+*GetConf(key (string),success (callback function),fail (callback function));
+*success callback must be defined and handle one parameter to receive config value 
+*</pre>*/
 Mobihelp.GetConf= function (key,success,fail)// success=>function(ret){ alert( ret);}
                     { if(typeof success =="undefined") throw("Error: @ GetConf(key (string),success (callback function),fail (callback function));\nsuccess callback must be defined and handle one parameter to receive config value \nTry something like\n function(val){ console.log(val);}");
                     fail=fail||function(){};
                      cordova.exec(success,fail, 'Wrap', 'getConf',[key]);}
 
 /**
-* Opens mobihelp Feedback screen
+* Initializes Mobihelp sdk with specified configurations
 *
-* @method Feedback
-* @param {Function} success - Function to callback if Feedback screen is opened successfully 
-* @param {Function} fail - Function to callback if Feedback screen opening failed
+* @method Init
+* @param {Function} success - Function to callback if Mobihelp initialization is successfully 
+* @param {Function} fail - Function to callback if Mobihelp initialization failed
 */
 Mobihelp.Init= function (success,fail)
                     { success=success||function(){};
@@ -122,22 +130,30 @@ Mobihelp.Init= function (success,fail)
                      cordova.exec(success,fail, 'Wrap', 'init',[]);}
 
 /**
-* Opens mobihelp Feedback screen
+* Adds custom key-value pairs which are attached to tickets
 *
-* @method Feedback
-* @param {Function} success - Function to callback if Feedback screen is opened successfully 
-* @param {Function} fail - Function to callback if Feedback screen opening failed
+* @method AddCustomData
+* @param {Object} key_val - key value pair
+*<pre>
+*                           {'key': (string),           // key
+*                            'val': (string),           //value
+*                            'sensitive': (boolean)     //whether the data is sensitive only in 1.3.1
+*                           }
+*</pre>
+* @param {Function} success - Function to callback if AddCustomData completed successfully 
+* @param {Function} fail - Function to callback if AddCustomData failed
 */
-Mobihelp.AddCustomData= function (key,val,sensitive,success,fail)
+Mobihelp.AddCustomData= function (key_val,sensitive,success,fail)
                     { success=success||function(){};
                     fail=fail||function(){};
                     sensitive=sensitive||false;
                      cordova.exec(success,fail, 'Wrap', 'customData',[key,val,sensitive]);}
 
 /**
-* Opens mobihelp Feedback screen
+* Attaches the given text as a breadcrumb to the conversations/tickets.
 *
-* @method Feedback
+* @method LeaveBreadCrumb
+* @param {String} text - Text to be left as breadcrumb
 * @param {Function} success - Function to callback if Feedback screen is opened successfully 
 * @param {Function} fail - Function to callback if Feedback screen opening failed
 */
@@ -147,11 +163,12 @@ Mobihelp.LeaveBreadCrumb= function (text,success,fail)
                      cordova.exec(success,fail, 'Wrap', 'breadCrumb',[text]);}
 
 /**
-* Opens mobihelp Feedback screen
+*Set the name of the user to be reported on the Freshdesk Portal.
 *
-* @method Feedback
-* @param {Function} success - Function to callback if Feedback screen is opened successfully 
-* @param {Function} fail - Function to callback if Feedback screen opening failed
+* @method SetName
+* @param {String} val - Full Name value
+* @param {Function} success - Function to callback ifSetName is successfully 
+* @param {Function} fail - Function to callback if SetName failed
 */
 Mobihelp.SetName= function (val,success,fail)
                     { success=success||function(){};
@@ -159,11 +176,12 @@ Mobihelp.SetName= function (val,success,fail)
                      cordova.exec(success,fail, 'Wrap', 'setName',[val]);}
 
 /**
-* Opens mobihelp Feedback screen
+* Set the email of the user to be reported on the Freshdesk Portal
 *
-* @method Feedback
-* @param {Function} success - Function to callback if Feedback screen is opened successfully 
-* @param {Function} fail - Function to callback if Feedback screen opening failed
+* @method SetEmail
+* @param {String} val - Email value
+* @param {Function} success - Function to callback if SetEmail is successfully 
+* @param {Function} fail - Function to callback if SetEmail failed
 */
 Mobihelp.SetEmail= function (val,success,fail)
                     { success=success||function(){};
@@ -171,23 +189,36 @@ Mobihelp.SetEmail= function (val,success,fail)
                      cordova.exec(success,fail, 'Wrap', 'setEmail',[val]);}                    
 
 /**
-* Opens mobihelp Feedback screen
+* Clears saved data corresponding to specified key (1.3.1)
 *
-* @method Feedback
-* @param {Function} success - Function to callback if Feedback screen is opened successfully 
-* @param {Function} fail - Function to callback if Feedback screen opening failed
+* @method Clear
+* @param {String} key - property to clear. this could be "CustomData" "BreadCrumbs" or "UserData" 
+* @param {Function} success - Function to callback if Clear is successfully 
+* @param {Function} fail - Function to callback if Clear failed
 */
 Mobihelp.Clear= function (key,success,fail)
                     { success=success||function(){};
                     fail=fail||function(){};
-                     cordova.exec(success,fail, 'Wrap', 'clear',[key]);}                    
+                     cordova.exec(success,fail, 'Wrap', 'clear',[key]);} /**
+* Clears saved user data 
+* @method ClearUserData
+* @param {Function} success - Function to callback if ClearUserData is successfully 
+* @param {Function} fail - Function to callback if ClearUserData failed
+*/
+Mobihelp.ClearUserData= function (success,fail)
+                    { Mobihelp.Clear("UserData",success,fail);}                    
 
 /**
 * Opens mobihelp Feedback screen
 *
-* @method Feedback
+* @method GetUnreadCount
 * @param {Function} success - Function to callback if Feedback screen is opened successfully 
 * @param {Function} fail - Function to callback if Feedback screen opening failed
+* @throws {Exception} 
+*<pre>
+*GetUnreadCount(key (string),success (callback function),fail (callback function));
+*success callback must be defined and handle one parameter to receive count 
+*</pre>
 */
 Mobihelp.GetUnreadCount= function (key,success,fail)
                     { if(typeof success =="undefined") throw("Error @ GetUnreadCount(key (string),success (callback function),fail (callback function));\nsuccess callback must be defined and handle one parameter to receive count \nTry something like\n function(val){ console.log(val);}");

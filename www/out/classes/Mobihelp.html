@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Mobihelp</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+                <h1><img src="../assets/css/logo.png" title="" width="117" height="52"></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: </em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+                    <h2 class="off-left">APIs</h2>
+                    <div id="api-tabview" class="tabview">
+                        <ul class="tabs">
+                            <li><a href="#api-classes">Classes</a></li>
+                            <li><a href="#api-modules">Modules</a></li>
+                        </ul>
+                
+                        <div id="api-tabview-filter">
+                            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                        </div>
+                
+                        <div id="api-tabview-panel">
+                            <ul id="api-classes" class="apis classes">
+                                <li><a href="../classes/Mobihelp.html">Mobihelp</a></li>
+                            </ul>
+                
+                            <ul id="api-modules" class="apis modules">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+                    Show:
+                    <label for="api-show-inherited">
+                        <input type="checkbox" id="api-show-inherited" checked>
+                        Inherited
+                    </label>
+            
+                    <label for="api-show-protected">
+                        <input type="checkbox" id="api-show-protected">
+                        Protected
+                    </label>
+            
+                    <label for="api-show-private">
+                        <input type="checkbox" id="api-show-private">
+                        Private
+                    </label>
+                    <label for="api-show-deprecated">
+                        <input type="checkbox" id="api-show-deprecated">
+                        Deprecated
+                    </label>
+            
+                </div>
+            
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+<h1>Mobihelp Class</h1>
+<div class="box meta">
+
+
+        <div class="foundat">
+            Defined in: <a href="../files/mobihelp.js.html#l22"><code>mobihelp.js:22</code></a>
+        </div>
+
+
+</div>
+
+
+<div class="box intro">
+    <p>Acts as an interface between Native (android) Mobihelp SDK and Cordova/Phonegap JS code</p>
+
+</div>
+
+
+<div id="classdocs" class="tabview">
+    <ul class="api-class-tabs">
+        <li class="api-class-tab index"><a href="#index">Index</a></li>
+
+            <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
+    </ul>
+
+    <div>
+        <div id="index" class="api-class-tabpanel index">
+            <h2 class="off-left">Item Index</h2>
+
+                <div class="index-section methods">
+                    <h3>Methods</h3>
+
+                    <ul class="index-list methods">
+                            <li class="index-item method">
+                                <a href="#method_AddCustomData">AddCustomData</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_Clear">Clear</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_Conversations">Conversations</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_Feedback">Feedback</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_GetConf">GetConf</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_GetUnreadCount">GetUnreadCount</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_Init">Init</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_LeaveBreadCrumb">LeaveBreadCrumb</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_SetConf">SetConf</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_SetEmail">SetEmail</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_SetName">SetName</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_ShowRatingPrompt">ShowRatingPrompt</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_Support">Support</a>
+
+                            </li>
+                    </ul>
+                </div>
+
+
+
+        </div>
+
+            <div id="methods" class="api-class-tabpanel">
+                <h2 class="off-left">Methods</h2>
+
+<div id="method_AddCustomData" class="method item">
+    <h3 class="name"><code>AddCustomData</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>key_val</code>
+                </li>
+                <li class="arg">
+                        <code>success</code>
+                </li>
+                <li class="arg">
+                        <code>fail</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/mobihelp.js.html#l129"><code>mobihelp.js:129</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Adds custom key-value pairs which are attached to tickets</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">key_val</code>
+                        <span class="type">Object</span>
+
+
+                    <div class="param-description">
+                        <ul>
+<li>key value pair<br>
+    <pre>
+{'key': (string),           // key
+'val': (string),           //value
+'sensitive': (boolean)     //whether the data is sensitive only in 1.3.1
+}</pre></li>
+</ul>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">success</code>
+                        <span class="type">Function</span>
+
+
+                    <div class="param-description">
+                        <ul>
+<li>Function to callback if AddCustomData completed successfully</li>
+</ul>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">fail</code>
+                        <span class="type">Function</span>
+
+
+                    <div class="param-description">
+                        <ul>
+<li>Function to callback if AddCustomData failed</li>
+</ul>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_Clear" class="method item">
+    <h3 class="name"><code>Clear</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>key</code>
+                </li>
+                <li class="arg">
+                        <code>success</code>
+                </li>
+                <li class="arg">
+                        <code>fail</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/mobihelp.js.html#l186"><code>mobihelp.js:186</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Clears saved data corresponding to specified key (1.3.1)</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">key</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <ul>
+<li>property to clear. this could be &quot;CustomData&quot; &quot;BreadCrumbs&quot; or &quot;UserData&quot;</li>
+</ul>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">success</code>
+                        <span class="type">Function</span>
+
+
+                    <div class="param-description">
+                        <ul>
+<li>Function to callback if Clear is successfully</li>
+</ul>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">fail</code>
+                        <span class="type">Function</span>
+
+
+                    <div class="param-description">
+                        <ul>
+<li>Function to callback if Clear failed</li>
+</ul>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_Conversations" class="method item">
+    <h3 class="name"><code>Conversations</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>success</code>
+                </li>
+                <li class="arg">
+                        <code>fail</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/mobihelp.js.html#l56"><code>mobihelp.js:56</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Opens mobihelp Conversations screen</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">success</code>
+                        <span class="type">Function</span>
+
+
+                    <div class="param-description">
+                        <ul>
+<li>Function to callback if Conversations screen is opened successfully</li>
+</ul>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">fail</code>
+                        <span class="type">Function</span>
+
+
+                    <div class="param-description">
+                        <ul>
+<li>Function to callback if Conversations screen opening failed</li>
+</ul>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_Feedback" class="method item">
+    <h3 class="name"><code>Feedback</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>success</code>
+                </li>
+                <li class="arg">
+                        <code>fail</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/mobihelp.js.html#l44"><code>mobihelp.js:44</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Opens mobihelp Feedback screen</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">success</code>
+                        <span class="type">Function</span>
+
+
+                    <div class="param-description">
+                        <ul>
+<li>Function to callback if Feedback screen is opened successfully</li>
+</ul>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">fail</code>
+                        <span class="type">Function</span>
+
+
+                    <div class="param-description">
+                        <ul>
+<li>Function to callback if Feedback screen opening failed</li>
+</ul>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_GetConf" class="method item">
+    <h3 class="name"><code>GetConf</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>key</code>
+                </li>
+                <li class="arg">
+                        <code>success</code>
+                </li>
+                <li class="arg">
+                        <code>fail</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/mobihelp.js.html#l103"><code>mobihelp.js:103</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Gets configuration value for respective keys</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">key</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <ul>
+<li>Get config value corresponding to &quot;key&quot;.</li>
+</ul>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">success</code>
+                        <span class="type">Function</span>
+
+
+                    <div class="param-description">
+                        <ul>
+<li>Function to callback if a configuration value is obtained successfully (*required)</li>
+</ul>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">fail</code>
+                        <span class="type">Function</span>
+
+
+                    <div class="param-description">
+                        <ul>
+<li>Function to callback if method fails</li>
+</ul>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+<div class="throws">
+            <h4>Throws:</h4>
+
+            <div class="throws-description">
+                        <span class="type">Exception</span>:
+                    <p><pre>
+ GetConf(key (string),success (callback function),fail (callback function));
+ success callback must be defined and handle one parameter to receive config value 
+                    
+</pre></p>
+
+            </div>
+        </div>
+
+</div>
+
+
+</div>
+<div id="method_GetUnreadCount" class="method item">
+    <h3 class="name"><code>GetUnreadCount</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>success</code>
+                </li>
+                <li class="arg">
+                        <code>fail</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/mobihelp.js.html#l206"><code>mobihelp.js:206</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Opens mobihelp Feedback screen</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">success</code>
+                        <span class="type">Function</span>
+
+
+                    <div class="param-description">
+                        <ul>
+<li>Function to callback if Feedback screen is opened successfully</li>
+</ul>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">fail</code>
+                        <span class="type">Function</span>
+
+
+                    <div class="param-description">
+                        <ul>
+<li>Function to callback if Feedback screen opening failed</li>
+</ul>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="throws">
+            <h4>Throws:</h4>
+
+            <div class="throws-description">
+                        <span class="type">Exception</span>:
+                    <p><pre>
+GetUnreadCount(key (string),success (callback function),fail (callback function));
+success callback must be defined and handle one parameter to receive count 
+</pre></p>
+
+            </div>
+        </div>
+
+</div>
+<div id="method_Init" class="method item">
+    <h3 class="name"><code>Init</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>success</code>
+                </li>
+                <li class="arg">
+                        <code>fail</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/mobihelp.js.html#l117"><code>mobihelp.js:117</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Initializes Mobihelp sdk with specified configurations</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">success</code>
+                        <span class="type">Function</span>
+
+
+                    <div class="param-description">
+                        <ul>
+<li>Function to callback if Mobihelp initialization is successfully</li>
+</ul>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">fail</code>
+                        <span class="type">Function</span>
+
+
+                    <div class="param-description">
+                        <ul>
+<li>Function to callback if Mobihelp initialization failed</li>
+</ul>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_LeaveBreadCrumb" class="method item">
+    <h3 class="name"><code>LeaveBreadCrumb</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>text</code>
+                </li>
+                <li class="arg">
+                        <code>success</code>
+                </li>
+                <li class="arg">
+                        <code>fail</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/mobihelp.js.html#l147"><code>mobihelp.js:147</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Attaches the given text as a breadcrumb to the conversations/tickets.</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">text</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <ul>
+<li>Text to be left as breadcrumb</li>
+</ul>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">success</code>
+                        <span class="type">Function</span>
+
+
+                    <div class="param-description">
+                        <ul>
+<li>Function to callback if Feedback screen is opened successfully</li>
+</ul>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">fail</code>
+                        <span class="type">Function</span>
+
+
+                    <div class="param-description">
+                        <ul>
+<li>Function to callback if Feedback screen opening failed</li>
+</ul>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_SetConf" class="method item">
+    <h3 class="name"><code>SetConf</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>conf</code>
+                </li>
+                <li class="arg">
+                        <code>success</code>
+                </li>
+                <li class="arg">
+                        <code>fail</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/mobihelp.js.html#l80"><code>mobihelp.js:80</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Sets mobihelp configurations</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">conf</code>
+                        <span class="type">Object</span>
+
+
+                    <div class="param-description">
+                        <ul>
+<li>
+<p>JSON conf object</p>
+<p><pre>
+{'AppStoreReviewUrl': (string),         //Android only
+'FeedbackType': (string),              // &quot;ANONYMOUS&quot; , &quot;NAME_AND_EMAIL_REQUIRED&quot;, &quot;NAME_REQUIRED&quot; (Same as FEEDBACK_TYPE_NAME_REQUIRED_AND_EMAIL_OPTIONAL in iOS)
+'LaunchCountForReviewPrompt': (number),// Number of launches before rate prompt is shown
+'PrefetchSolutions': (boolean),        // pre-load solutions
+'AutoReply': (boolean),                // Show an auto reply when a ticket is submited
+'EnhancedPrivacyModeEnabled': (boolean)// Enhanced Privacy Mode
+}</pre></p>
+</li>
+</ul>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">success</code>
+                        <span class="type">Function</span>
+
+
+                    <div class="param-description">
+                        <ul>
+<li>Function to callback if Feedback screen is opened successfully</li>
+</ul>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">fail</code>
+                        <span class="type">Function</span>
+
+
+                    <div class="param-description">
+                        <ul>
+<li>Function to callback if Feedback screen opening failed</li>
+</ul>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_SetEmail" class="method item">
+    <h3 class="name"><code>SetEmail</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>val</code>
+                </li>
+                <li class="arg">
+                        <code>success</code>
+                </li>
+                <li class="arg">
+                        <code>fail</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/mobihelp.js.html#l173"><code>mobihelp.js:173</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Set the email of the user to be reported on the Freshdesk Portal</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">val</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <ul>
+<li>Email value</li>
+</ul>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">success</code>
+                        <span class="type">Function</span>
+
+
+                    <div class="param-description">
+                        <ul>
+<li>Function to callback if SetEmail is successfully</li>
+</ul>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">fail</code>
+                        <span class="type">Function</span>
+
+
+                    <div class="param-description">
+                        <ul>
+<li>Function to callback if SetEmail failed</li>
+</ul>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_SetName" class="method item">
+    <h3 class="name"><code>SetName</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>val</code>
+                </li>
+                <li class="arg">
+                        <code>success</code>
+                </li>
+                <li class="arg">
+                        <code>fail</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/mobihelp.js.html#l160"><code>mobihelp.js:160</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Set the name of the user to be reported on the Freshdesk Portal.</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">val</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <ul>
+<li>Full Name value</li>
+</ul>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">success</code>
+                        <span class="type">Function</span>
+
+
+                    <div class="param-description">
+                        <ul>
+<li>Function to callback ifSetName is successfully</li>
+</ul>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">fail</code>
+                        <span class="type">Function</span>
+
+
+                    <div class="param-description">
+                        <ul>
+<li>Function to callback if SetName failed</li>
+</ul>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_ShowRatingPrompt" class="method item">
+    <h3 class="name"><code>ShowRatingPrompt</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>success</code>
+                </li>
+                <li class="arg">
+                        <code>fail</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/mobihelp.js.html#l68"><code>mobihelp.js:68</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Opens mobihelp RatingPrompt dialogue</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">success</code>
+                        <span class="type">Function</span>
+
+
+                    <div class="param-description">
+                        <ul>
+<li>Function to callback if RatingPrompt dialogue is opened successfully</li>
+</ul>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">fail</code>
+                        <span class="type">Function</span>
+
+
+                    <div class="param-description">
+                        <ul>
+<li>Function to callback if RatingPrompt dialogue opening failed</li>
+</ul>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+<div id="method_Support" class="method item">
+    <h3 class="name"><code>Support</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>success</code>
+                </li>
+                <li class="arg">
+                        <code>fail</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/mobihelp.js.html#l31"><code>mobihelp.js:31</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Opens mobihelp support screen</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">success</code>
+                        <span class="type">Function</span>
+
+
+                    <div class="param-description">
+                        <ul>
+<li>Function to callback if support screen is opened successfully</li>
+</ul>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">fail</code>
+                        <span class="type">Function</span>
+
+
+                    <div class="param-description">
+                        <ul>
+<li>Function to callback if support screen opening failed</li>
+</ul>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
+            </div>
+
+
+
+    </div>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>
