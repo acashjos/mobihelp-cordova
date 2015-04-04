@@ -83,7 +83,7 @@ Mobihelp.ShowRatingPrompt= function (success,fail)
 * @method SetConf
 * @param {Object} conf - JSON conf object
 *                           {'AppStoreReviewUrl': (string),     //Android only
-*                            'FeedbackType': (string),          // "ANONYMOUS" , "NAME_AND_EMAIL_REQUIRED", "NAME_REQUIRED" 
+*                            'FeedbackType': (string),          // "ANONYMOUS" , "NAME_AND_EMAIL_REQUIRED", "NAME_REQUIRED" (Same as FEEDBACK_TYPE_NAME_REQUIRED_AND_EMAIL_OPTIONAL in iOS)
 *                            'LaunchCountForReviewPrompt': null,
 *                            'PrefetchSolutions': null,
 *                            'AutoReply': null,"+
