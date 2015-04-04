@@ -82,12 +82,12 @@ Mobihelp.ShowRatingPrompt= function (success,fail)
 *
 * @method SetConf
 * @param {Object} conf - JSON conf object
-*                           {'AppStoreReviewUrl': (string),     //Android only
-*                            'FeedbackType': (string),          // "ANONYMOUS" , "NAME_AND_EMAIL_REQUIRED", "NAME_REQUIRED" 
-*                            'LaunchCountForReviewPrompt': null,
-*                            'PrefetchSolutions': null,
-*                            'AutoReply': null,"+
-*                            'EnhancedPrivacyModeEnabled': null
+*                           {'AppStoreReviewUrl': (string),         //Android only
+*                            'FeedbackType': (string),              // "ANONYMOUS" , "NAME_AND_EMAIL_REQUIRED", "NAME_REQUIRED" 
+*                            'LaunchCountForReviewPrompt': (number),// Number of launches before rate prompt is shown
+*                            'PrefetchSolutions': (boolean),        // pre-load solutions
+*                            'AutoReply': (boolean),                // Show an auto reply when a ticket is submited
+*                            'EnhancedPrivacyModeEnabled': (boolean)// not-supported
 *                            }
 * @param {Function} success - Function to callback if Feedback screen is opened successfully 
 * @param {Function} fail - Function to callback if Feedback screen opening failed
@@ -101,6 +101,7 @@ Mobihelp.SetConf= function (conf,success,fail)
 * Opens mobihelp Feedback screen
 *
 * @method Feedback
+* @param {String} key - Get config value corresponding to "key". 
 * @param {Function} success - Function to callback if Feedback screen is opened successfully 
 * @param {Function} fail - Function to callback if Feedback screen opening failed
 */
