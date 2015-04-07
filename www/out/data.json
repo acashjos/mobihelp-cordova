@@ -25,13 +25,13 @@
             "line": 22,
             "description": "Acts as an interface between Native (android) Mobihelp SDK and Cordova/Phonegap JS code",
             "author": "Akash Kurian Jose",
-            "version": "1.0"
+            "version": "0.5.1"
         }
     },
     "classitems": [
         {
             "file": "mobihelp.js",
-            "line": 31,
+            "line": 33,
             "description": "Opens mobihelp support screen",
             "itemtype": "method",
             "name": "Support",
@@ -51,7 +51,7 @@
         },
         {
             "file": "mobihelp.js",
-            "line": 44,
+            "line": 45,
             "description": "Opens mobihelp Feedback screen",
             "itemtype": "method",
             "name": "Feedback",
@@ -71,7 +71,7 @@
         },
         {
             "file": "mobihelp.js",
-            "line": 56,
+            "line": 57,
             "description": "Opens mobihelp Conversations screen",
             "itemtype": "method",
             "name": "Conversations",
@@ -91,7 +91,7 @@
         },
         {
             "file": "mobihelp.js",
-            "line": 68,
+            "line": 69,
             "description": "Opens mobihelp RatingPrompt dialogue",
             "itemtype": "method",
             "name": "ShowRatingPrompt",
@@ -111,14 +111,14 @@
         },
         {
             "file": "mobihelp.js",
-            "line": 80,
+            "line": 81,
             "description": "Sets mobihelp configurations",
             "itemtype": "method",
             "name": "SetConf",
             "params": [
                 {
                     "name": "conf",
-                    "description": "- JSON conf object\n\n    JSON:\n                          {'AppStoreReviewUrl': (string),         //Android only\n                           'FeedbackType': (string),              // \"ANONYMOUS\" , \"NAME_AND_EMAIL_REQUIRED\", \"NAME_REQUIRED\" (Same as FEEDBACK_TYPE_NAME_REQUIRED_AND_EMAIL_OPTIONAL in iOS)\n                           'LaunchCountForReviewPrompt': (number),// Number of launches before rate prompt is shown\n                           'PrefetchSolutions': (boolean),        // pre-load solutions\n                           'AutoReply': (boolean),                // Show an auto reply when a ticket is submited\n                           'EnhancedPrivacyModeEnabled': (boolean)// Enhanced Privacy Mode\n                           }",
+                    "description": "- JSON conf object\n    \n          {'AppStoreReviewUrl': (string),         //Android only\n          'FeedbackType': (string),              // \"ANONYMOUS\" , \"NAME_AND_EMAIL_REQUIRED\", \"NAME_REQUIRED\" (Same as FEEDBACK_TYPE_NAME_REQUIRED_AND_EMAIL_OPTIONAL in iOS)\n          'LaunchCountForReviewPrompt': (number),// Number of launches before rate prompt is shown\n          'PrefetchSolutions': (boolean),        // pre-load solutions\n          'AutoReply': (boolean),                // Show an auto reply when a ticket is submited\n          'EnhancedPrivacyModeEnabled': (boolean)// Enhanced Privacy Mode (1.3.1)\n          }",
                     "type": "Object"
                 },
                 {
@@ -136,14 +136,14 @@
         },
         {
             "file": "mobihelp.js",
-            "line": 103,
-            "description": "Gets configuration value for respective keys",
+            "line": 102,
+            "description": "Gets configuration value for respective key passed",
             "itemtype": "method",
             "name": "GetConf",
             "params": [
                 {
                     "name": "key",
-                    "description": "- Get config value corresponding to \"key\".",
+                    "description": "- Get config value corresponding to \"key\". This could be \"AppStoreReviewUrl\",\"FeedbackType\",\"LaunchCountForReviewPrompt\",\"PrefetchSolutions\",\"AutoReply\" or \"EnhancedPrivacyModeEnabled\" (1.3.1)",
                     "type": "String"
                 },
                 {
@@ -157,13 +157,16 @@
                     "type": "Function"
                 }
             ],
-            "exception": "Exception success callback  required",
+            "throws": {
+                "description": "<pre>\nGetConf(key (string),success (callback function),fail (callback function));\nsuccess callback must be defined and handle one parameter to receive config value",
+                "type": "Exception"
+            },
             "class": "Mobihelp"
         },
         {
             "file": "mobihelp.js",
-            "line": 117,
-            "description": "Initializes Mobihelp sdk with specified configurations",
+            "line": 119,
+            "description": "Initializes Mobihelp sdk with configuration specified using {{#crossLink \"Mobihelp/SetConf:method\"}}{{/crossLink}}",
             "itemtype": "method",
             "name": "Init",
             "params": [
@@ -182,15 +185,25 @@
         },
         {
             "file": "mobihelp.js",
-            "line": 129,
+            "line": 131,
             "description": "Adds custom key-value pairs which are attached to tickets",
             "itemtype": "method",
             "name": "AddCustomData",
             "params": [
                 {
-                    "name": "key_val",
-                    "description": "- key value pair\n                          {'key': (string),           // key\n                           'val': (string),           //value\n                           'sensitive': (boolean)     //whether the data is sensitive only in 1.3.1\n                          }",
-                    "type": "Object"
+                    "name": "key",
+                    "description": "- for the key value pair",
+                    "type": "String"
+                },
+                {
+                    "name": "val",
+                    "description": "- for the key value pair",
+                    "type": "String"
+                },
+                {
+                    "name": "sensitive",
+                    "description": "- is this value sensitive. This has effect only if enhanced-privacy-mode is enabled (1.3.1)",
+                    "type": "Boolean"
                 },
                 {
                     "name": "success",
@@ -233,7 +246,7 @@
         {
             "file": "mobihelp.js",
             "line": 160,
-            "description": "Set the name of the user to be reported on the Freshdesk Portal.",
+            "description": "Set the full name of the user to be reported on the Freshdesk Portal.",
             "itemtype": "method",
             "name": "SetName",
             "params": [
@@ -307,14 +320,34 @@
         },
         {
             "file": "mobihelp.js",
-            "line": 206,
-            "description": "Opens mobihelp Feedback screen",
+            "line": 198,
+            "description": "Clears saved user data (name , email)",
+            "itemtype": "method",
+            "name": "ClearUserData",
+            "params": [
+                {
+                    "name": "success",
+                    "description": "- Function to callback if ClearUserData is successfully",
+                    "type": "Function"
+                },
+                {
+                    "name": "fail",
+                    "description": "- Function to callback if ClearUserData failed",
+                    "type": "Function"
+                }
+            ],
+            "class": "Mobihelp"
+        },
+        {
+            "file": "mobihelp.js",
+            "line": 209,
+            "description": "Retrieve the number of unread items across all the conversations for the user synchronously i.e.",
             "itemtype": "method",
             "name": "GetUnreadCount",
             "params": [
                 {
                     "name": "success",
-                    "description": "- Function to callback if Feedback screen is opened successfully",
+                    "description": "- Function to callback if Feedback screen is opened successfully (required)",
                     "type": "Function"
                 },
                 {
@@ -324,7 +357,7 @@
                 }
             ],
             "throws": {
-                "description": "<pre>\nGetUnreadCount(key (string),success (callback function),fail (callback function));\\nsuccess callback must be defined and handle one parameter to receive count \\nTry something like\\n function(val){ console.log(val);}\n</pre>",
+                "description": "<pre>\nGetUnreadCount(key (string),success (callback function),fail (callback function));\nsuccess callback must be defined and handle one parameter to receive count \n</pre>",
                 "type": "Exception"
             },
             "class": "Mobihelp"
@@ -334,10 +367,6 @@
         {
             "message": "unknown tag: version",
             "line": " mobihelp.js:22"
-        },
-        {
-            "message": "unknown tag: exception",
-            "line": " mobihelp.js:103"
         }
     ]
 }

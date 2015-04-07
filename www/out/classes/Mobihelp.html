@@ -117,6 +117,10 @@
 
                             </li>
                             <li class="index-item method">
+                                <a href="#method_ClearUserData">ClearUserData</a>
+
+                            </li>
+                            <li class="index-item method">
                                 <a href="#method_Conversations">Conversations</a>
 
                             </li>
@@ -176,7 +180,13 @@
         <div class="args">
             <span class="paren">(</span><ul class="args-list inline commas">
                 <li class="arg">
-                        <code>key_val</code>
+                        <code>key</code>
+                </li>
+                <li class="arg">
+                        <code>val</code>
+                </li>
+                <li class="arg">
+                        <code>sensitive</code>
                 </li>
                 <li class="arg">
                         <code>success</code>
@@ -197,7 +207,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/mobihelp.js.html#l129"><code>mobihelp.js:129</code></a>
+        <a href="../files/mobihelp.js.html#l131"><code>mobihelp.js:131</code></a>
         </p>
 
 
@@ -214,18 +224,39 @@
 
             <ul class="params-list">
                 <li class="param">
-                        <code class="param-name">key_val</code>
-                        <span class="type">Object</span>
+                        <code class="param-name">key</code>
+                        <span class="type">String</span>
 
 
                     <div class="param-description">
                         <ul>
-<li>key value pair<br>
-    <pre>
-{'key': (string),           // key
-'val': (string),           //value
-'sensitive': (boolean)     //whether the data is sensitive only in 1.3.1
-}</pre></li>
+<li>for the key value pair</li>
+</ul>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">val</code>
+                        <span class="type">String</span>
+
+
+                    <div class="param-description">
+                        <ul>
+<li>for the key value pair</li>
+</ul>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">sensitive</code>
+                        <span class="type">Boolean</span>
+
+
+                    <div class="param-description">
+                        <ul>
+<li>is this value sensitive. This has effect only if enhanced-privacy-mode is enabled (1.3.1)</li>
 </ul>
 
                     </div>
@@ -351,6 +382,78 @@
 
 
 </div>
+<div id="method_ClearUserData" class="method item">
+    <h3 class="name"><code>ClearUserData</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>success</code>
+                </li>
+                <li class="arg">
+                        <code>fail</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/mobihelp.js.html#l198"><code>mobihelp.js:198</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Clears saved user data (name , email)</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">success</code>
+                        <span class="type">Function</span>
+
+
+                    <div class="param-description">
+                        <ul>
+<li>Function to callback if ClearUserData is successfully</li>
+</ul>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">fail</code>
+                        <span class="type">Function</span>
+
+
+                    <div class="param-description">
+                        <ul>
+<li>Function to callback if ClearUserData failed</li>
+</ul>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+
+</div>
 <div id="method_Conversations" class="method item">
     <h3 class="name"><code>Conversations</code></h3>
 
@@ -375,7 +478,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/mobihelp.js.html#l56"><code>mobihelp.js:56</code></a>
+        <a href="../files/mobihelp.js.html#l57"><code>mobihelp.js:57</code></a>
         </p>
 
 
@@ -447,7 +550,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/mobihelp.js.html#l44"><code>mobihelp.js:44</code></a>
+        <a href="../files/mobihelp.js.html#l45"><code>mobihelp.js:45</code></a>
         </p>
 
 
@@ -522,7 +625,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/mobihelp.js.html#l103"><code>mobihelp.js:103</code></a>
+        <a href="../files/mobihelp.js.html#l102"><code>mobihelp.js:102</code></a>
         </p>
 
 
@@ -530,7 +633,7 @@
     </div>
 
     <div class="description">
-        <p>Gets configuration value for respective keys</p>
+        <p>Gets configuration value for respective key passed</p>
 
     </div>
 
@@ -545,7 +648,7 @@
 
                     <div class="param-description">
                         <ul>
-<li>Get config value corresponding to &quot;key&quot;.</li>
+<li>Get config value corresponding to &quot;key&quot;. This could be &quot;AppStoreReviewUrl&quot;,&quot;FeedbackType&quot;,&quot;LaunchCountForReviewPrompt&quot;,&quot;PrefetchSolutions&quot;,&quot;AutoReply&quot; or &quot;EnhancedPrivacyModeEnabled&quot; (1.3.1)</li>
 </ul>
 
                     </div>
@@ -579,22 +682,19 @@
                 </li>
             </ul>
         </div>
-<div class="throws">
+
+
+        <div class="throws">
             <h4>Throws:</h4>
 
             <div class="throws-description">
                         <span class="type">Exception</span>:
-                    <p><pre>
- GetConf(key (string),success (callback function),fail (callback function));
- success callback must be defined and handle one parameter to receive config value 
-                    
-</pre></p>
+                    <p>&lt;pre&gt;
+GetConf(key (string),success (callback function),fail (callback function));
+success callback must be defined and handle one parameter to receive config value</p>
 
             </div>
         </div>
-
-</div>
-
 
 </div>
 <div id="method_GetUnreadCount" class="method item">
@@ -621,7 +721,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/mobihelp.js.html#l206"><code>mobihelp.js:206</code></a>
+        <a href="../files/mobihelp.js.html#l209"><code>mobihelp.js:209</code></a>
         </p>
 
 
@@ -629,7 +729,7 @@
     </div>
 
     <div class="description">
-        <p>Opens mobihelp Feedback screen</p>
+        <p>Retrieve the number of unread items across all the conversations for the user synchronously i.e.</p>
 
     </div>
 
@@ -644,7 +744,7 @@
 
                     <div class="param-description">
                         <ul>
-<li>Function to callback if Feedback screen is opened successfully</li>
+<li>Function to callback if Feedback screen is opened successfully (required)</li>
 </ul>
 
                     </div>
@@ -672,10 +772,10 @@
 
             <div class="throws-description">
                         <span class="type">Exception</span>:
-                    <p><pre>
+                    <p>&lt;pre&gt;
 GetUnreadCount(key (string),success (callback function),fail (callback function));
-success callback must be defined and handle one parameter to receive count 
-</pre></p>
+success callback must be defined and handle one parameter to receive count
+&lt;/pre&gt;</p>
 
             </div>
         </div>
@@ -705,7 +805,7 @@ success callback must be defined and handle one parameter to receive count
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/mobihelp.js.html#l117"><code>mobihelp.js:117</code></a>
+        <a href="../files/mobihelp.js.html#l119"><code>mobihelp.js:119</code></a>
         </p>
 
 
@@ -713,7 +813,7 @@ success callback must be defined and handle one parameter to receive count
     </div>
 
     <div class="description">
-        <p>Initializes Mobihelp sdk with specified configurations</p>
+        <p>Initializes Mobihelp sdk with configuration specified using <a href="../classes/Mobihelp.html#method_SetConf" class="crosslink">SetConf</a></p>
 
     </div>
 
@@ -868,7 +968,7 @@ success callback must be defined and handle one parameter to receive count
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/mobihelp.js.html#l80"><code>mobihelp.js:80</code></a>
+        <a href="../files/mobihelp.js.html#l81"><code>mobihelp.js:81</code></a>
         </p>
 
 
@@ -893,14 +993,13 @@ success callback must be defined and handle one parameter to receive count
                         <ul>
 <li>
 <p>JSON conf object</p>
-<p><pre>
-{'AppStoreReviewUrl': (string),         //Android only
-'FeedbackType': (string),              // &quot;ANONYMOUS&quot; , &quot;NAME_AND_EMAIL_REQUIRED&quot;, &quot;NAME_REQUIRED&quot; (Same as FEEDBACK_TYPE_NAME_REQUIRED_AND_EMAIL_OPTIONAL in iOS)
-'LaunchCountForReviewPrompt': (number),// Number of launches before rate prompt is shown
-'PrefetchSolutions': (boolean),        // pre-load solutions
-'AutoReply': (boolean),                // Show an auto reply when a ticket is submited
-'EnhancedPrivacyModeEnabled': (boolean)// Enhanced Privacy Mode
-}</pre></p>
+<pre><code>    {'AppStoreReviewUrl': (string),         //Android only
+    'FeedbackType': (string),              // &quot;ANONYMOUS&quot; , &quot;NAME_AND_EMAIL_REQUIRED&quot;, &quot;NAME_REQUIRED&quot; (Same as FEEDBACK_TYPE_NAME_REQUIRED_AND_EMAIL_OPTIONAL in iOS)
+    'LaunchCountForReviewPrompt': (number),// Number of launches before rate prompt is shown
+    'PrefetchSolutions': (boolean),        // pre-load solutions
+    'AutoReply': (boolean),                // Show an auto reply when a ticket is submited
+    'EnhancedPrivacyModeEnabled': (boolean)// Enhanced Privacy Mode (1.3.1)
+    }</code></pre>
 </li>
 </ul>
 
@@ -1062,7 +1161,7 @@ success callback must be defined and handle one parameter to receive count
     </div>
 
     <div class="description">
-        <p>Set the name of the user to be reported on the Freshdesk Portal.</p>
+        <p>Set the full name of the user to be reported on the Freshdesk Portal.</p>
 
     </div>
 
@@ -1139,7 +1238,7 @@ success callback must be defined and handle one parameter to receive count
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/mobihelp.js.html#l68"><code>mobihelp.js:68</code></a>
+        <a href="../files/mobihelp.js.html#l69"><code>mobihelp.js:69</code></a>
         </p>
 
 
@@ -1211,7 +1310,7 @@ success callback must be defined and handle one parameter to receive count
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/mobihelp.js.html#l31"><code>mobihelp.js:31</code></a>
+        <a href="../files/mobihelp.js.html#l33"><code>mobihelp.js:33</code></a>
         </p>
 
 

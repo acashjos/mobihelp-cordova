@@ -22,12 +22,14 @@
 /**
 * Acts as an interface between Native (android) Mobihelp SDK and Cordova/Phonegap JS code
 *
+*
 * @class Mobihelp
 * @author Akash Kurian Jose
-* @version 1.0
+* @version 0.5.1
 * 
 */
 var Mobihelp={};
+
 /**
 * Opens mobihelp support screen
 *
@@ -35,7 +37,6 @@ var Mobihelp={};
 * @param {Function} success - Function to callback if support screen is opened successfully 
 * @param {Function} fail - Function to callback if support screen opening failed
 */
-
 Mobihelp.Support= function (success,fail)
                     {success=success||function(){};
                     fail=fail||function(){};
@@ -82,16 +83,14 @@ Mobihelp.ShowRatingPrompt= function (success,fail)
 *
 * @method SetConf
 * @param {Object} conf - JSON conf object
-*<pre>
-*     
-*                           {'AppStoreReviewUrl': (string),         //Android only
-*                            'FeedbackType': (string),              // "ANONYMOUS" , "NAME_AND_EMAIL_REQUIRED", "NAME_REQUIRED" (Same as FEEDBACK_TYPE_NAME_REQUIRED_AND_EMAIL_OPTIONAL in iOS)
-*                            'LaunchCountForReviewPrompt': (number),// Number of launches before rate prompt is shown
-*                            'PrefetchSolutions': (boolean),        // pre-load solutions
-*                            'AutoReply': (boolean),                // Show an auto reply when a ticket is submited
-*                            'EnhancedPrivacyModeEnabled': (boolean)// Enhanced Privacy Mode
-*                            }
-*</pre>
+     
+*           {'AppStoreReviewUrl': (string),         //Android only
+*           'FeedbackType': (string),              // "ANONYMOUS" , "NAME_AND_EMAIL_REQUIRED", "NAME_REQUIRED" (Same as FEEDBACK_TYPE_NAME_REQUIRED_AND_EMAIL_OPTIONAL in iOS)
+*           'LaunchCountForReviewPrompt': (number),// Number of launches before rate prompt is shown
+*           'PrefetchSolutions': (boolean),        // pre-load solutions
+*           'AutoReply': (boolean),                // Show an auto reply when a ticket is submited
+*           'EnhancedPrivacyModeEnabled': (boolean)// Enhanced Privacy Mode (1.3.1)
+*           }
 * @param {Function} success - Function to callback if Feedback screen is opened successfully 
 * @param {Function} fail - Function to callback if Feedback screen opening failed
 */
@@ -101,10 +100,10 @@ Mobihelp.SetConf= function (conf,success,fail)
                      cordova.exec(success,fail, 'Wrap', 'setConf',[conf]);}
 
 /**
-* Gets configuration value for respective keys
+* Gets configuration value for respective key passed
 *
 * @method GetConf
-* @param {String} key - Get config value corresponding to "key". This could be "AppStoreReviewUrl","FeedbackType","LaunchCountForReviewPrompt","PrefetchSolutions","AutoReply" or "EnhancedPrivacyModeEnabled"
+* @param {String} key - Get config value corresponding to "key". This could be "AppStoreReviewUrl","FeedbackType","LaunchCountForReviewPrompt","PrefetchSolutions","AutoReply" or "EnhancedPrivacyModeEnabled" (1.3.1)
 * @param {Function} success - Function to callback if a configuration value is obtained successfully (*required)
 * @param {Function} fail - Function to callback if method fails
 * @throws {Exception} 
@@ -118,7 +117,7 @@ Mobihelp.GetConf= function (key,success,fail)// success=>function(ret){ alert( r
                      cordova.exec(success,fail, 'Wrap', 'getConf',[key]);}
 
 /**
-* Initializes Mobihelp sdk with specified configurations
+* Initializes Mobihelp sdk with configuration specified using {{#crossLink "Mobihelp/SetConf:method"}}{{/crossLink}}
 *
 * @method Init
 * @param {Function} success - Function to callback if Mobihelp initialization is successfully 
@@ -133,17 +132,13 @@ Mobihelp.Init= function (success,fail)
 * Adds custom key-value pairs which are attached to tickets
 *
 * @method AddCustomData
-* @param {Object} key_val - key value pair
-*<pre>
-*                           {'key': (string),           // key
-*                            'val': (string),           //value
-*                            'sensitive': (boolean)     //whether the data is sensitive only in 1.3.1
-*                           }
-*</pre>
+* @param {String} key  - for the key value pair
+* @param {String} val  - for the key value pair
+* @param {Boolean} sensitive  - is this value sensitive. This has effect only if enhanced-privacy-mode is enabled (1.3.1)
 * @param {Function} success - Function to callback if AddCustomData completed successfully 
 * @param {Function} fail - Function to callback if AddCustomData failed
 */
-Mobihelp.AddCustomData= function (key_val,sensitive,success,fail)
+Mobihelp.AddCustomData= function (key,val,sensitive,success,fail)
                     { success=success||function(){};
                     fail=fail||function(){};
                     sensitive=sensitive||false;
@@ -163,7 +158,7 @@ Mobihelp.LeaveBreadCrumb= function (text,success,fail)
                      cordova.exec(success,fail, 'Wrap', 'breadCrumb',[text]);}
 
 /**
-*Set the name of the user to be reported on the Freshdesk Portal.
+*Set the full name of the user to be reported on the Freshdesk Portal.
 *
 * @method SetName
 * @param {String} val - Full Name value
@@ -200,19 +195,22 @@ Mobihelp.Clear= function (key,success,fail)
                     { success=success||function(){};
                     fail=fail||function(){};
                      cordova.exec(success,fail, 'Wrap', 'clear',[key]);} /**
-* Clears saved user data 
+/**
+* Clears saved user data (name , email)
 * @method ClearUserData
 * @param {Function} success - Function to callback if ClearUserData is successfully 
 * @param {Function} fail - Function to callback if ClearUserData failed
 */
 Mobihelp.ClearUserData= function (success,fail)
-                    { Mobihelp.Clear("UserData",success,fail);}                    
+                    { success=success||function(){};
+                    fail=fail||function(){};
+                     cordova.exec(success,fail, 'Wrap', 'clear',[UserData]);}                    
 
 /**
-* Opens mobihelp Feedback screen
+* Retrieve the number of unread items across all the conversations for the user synchronously i.e.
 *
 * @method GetUnreadCount
-* @param {Function} success - Function to callback if Feedback screen is opened successfully 
+* @param {Function} success - Function to callback if Feedback screen is opened successfully (required)
 * @param {Function} fail - Function to callback if Feedback screen opening failed
 * @throws {Exception} 
 *<pre>
@@ -220,11 +218,11 @@ Mobihelp.ClearUserData= function (success,fail)
 *success callback must be defined and handle one parameter to receive count 
 *</pre>
 */
-Mobihelp.GetUnreadCount= function (key,success,fail)
+Mobihelp.GetUnreadCount= function (success,fail)
                     { if(typeof success =="undefined") throw("Error @ GetUnreadCount(key (string),success (callback function),fail (callback function));\nsuccess callback must be defined and handle one parameter to receive count \nTry something like\n function(val){ console.log(val);}");
                     
                     fail=fail||function(){};
-                     cordova.exec(success,fail, 'Wrap', ' getUnreadCount',[]);}
+                     cordova.exec(success,fail, 'Wrap', 'getUnreadCount',[]);}
 
 if (typeof module !== 'undefined') {
 // Export admob

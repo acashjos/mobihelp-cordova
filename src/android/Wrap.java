@@ -31,11 +31,14 @@ import android.util.Log;
 import android.provider.Settings;
 import com.freshdesk.mobihelp.*;
 import java.util.Iterator;
+import com.freshdesk.mobihelp.UnreadUpdatesCallback;
+import com.freshdesk.mobihelp.MobihelpCallbackStatus;
 
 public class Wrap extends CordovaPlugin {
     public static final String TAG = "Device";
     private  MobihelpConfig conf;
-    private static CordovaInterface root;     
+    private static CordovaInterface root;   
+    private  CallbackContext  unreadUpdatesCallback=null;
    /*"{
       'AppStoreReviewUrl': null,
       'FeedbackType': null,
@@ -110,6 +113,10 @@ public class Wrap extends CordovaPlugin {
             default: return false;
           }
         }
+        else  if (action.equals("getUnreadCount")) {  unreadUpdatesCallback=callbackContext;
+          Mobihelp.getUnreadCountAsync (root.getActivity(),countUpdateCallback);
+          return true;
+        }
        
         else
         return false;
@@ -179,6 +186,13 @@ private boolean getConf(String args,CallbackContext callbackContext)
             }
             return true;
 } 
+ UnreadUpdatesCallback countUpdateCallback = new UnreadUpdatesCallback() {
+@Override
+public void onResult(MobihelpCallbackStatus statusCode, Integer count) {
+if(statusCode==MobihelpCallbackStatus.STATUS_SUCCESS )
+{if(unreadUpdatesCallback!=null)unreadUpdatesCallback.success(count);}
+}
+};
        
 
 }
