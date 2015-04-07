@@ -31,9 +31,17 @@ import android.util.Log;
 import android.provider.Settings;
 import com.freshdesk.mobihelp.*;
 import java.util.Iterator;
-import com.freshdesk.mobihelp.UnreadUpdatesCallback;
-import com.freshdesk.mobihelp.MobihelpCallbackStatus;
+//import com.freshdesk.mobihelp.UnreadUpdatesCallback;
+//import com.freshdesk.mobihelp.MobihelpCallbackStatus;
 
+/**
+* Java code linking Mobihelp android SDK
+*
+*
+* @class CordovaPlugin
+* @author Akash Kurian Jose
+* 
+*/
 public class Wrap extends CordovaPlugin {
     public static final String TAG = "Device";
     private  MobihelpConfig conf;
@@ -55,14 +63,6 @@ public class Wrap extends CordovaPlugin {
     }
 
 
-    /**
-     * Executes the request and returns PluginResult.
-     *
-     * @param action            The action to execute.
-     * @param args              JSONArry of arguments for the plugin.
-     * @param callbackContext   The callback id used when calling back into JavaScript.
-     * @return                  True if the action was valid, false if not.
-     */
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         try{
         if (action.equals("support")) { Mobihelp.showSupport(root.getActivity());
@@ -113,8 +113,8 @@ public class Wrap extends CordovaPlugin {
             default: return false;
           }
         }
-        else  if (action.equals("getUnreadCount")) {  unreadUpdatesCallback=callbackContext;
-          Mobihelp.getUnreadCountAsync (root.getActivity(),countUpdateCallback);
+        else  if (action.equals("getUnreadCount")) {  //unreadUpdatesCallback=callbackContext;
+          callbackContext.success(Mobihelp.getUnreadCount (root.getActivity()));
           return true;
         }
        
@@ -186,6 +186,8 @@ private boolean getConf(String args,CallbackContext callbackContext)
             }
             return true;
 } 
+ /*
+required for asynchronous unread convo count fetching, which is not implemented
  UnreadUpdatesCallback countUpdateCallback = new UnreadUpdatesCallback() {
 @Override
 public void onResult(MobihelpCallbackStatus statusCode, Integer count) {
@@ -194,5 +196,5 @@ if(statusCode==MobihelpCallbackStatus.STATUS_SUCCESS )
 }
 };
        
-
+*/
 }
