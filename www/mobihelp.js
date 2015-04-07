@@ -88,7 +88,6 @@ Mobihelp.ShowRatingPrompt= function (success,fail)
 *           'LaunchCountForReviewPrompt': (number),// Number of launches before rate prompt is shown
 *           'PrefetchSolutions': (boolean),        // pre-load solutions
 *           'AutoReply': (boolean),                // Show an auto reply when a ticket is submited
-*           'EnhancedPrivacyModeEnabled': (boolean)// Enhanced Privacy Mode (1.3.1)
 *           }
 * @param {Function} success - Function to callback if Feedback screen is opened successfully 
 * @param {Function} fail - Function to callback if Feedback screen opening failed
@@ -102,7 +101,7 @@ Mobihelp.SetConf= function (conf,success,fail)
 * Gets configuration value for respective key passed
 *
 * @method GetConf
-* @param {String} key - Get config value corresponding to "key". This could be "AppStoreReviewUrl","FeedbackType","LaunchCountForReviewPrompt","PrefetchSolutions","AutoReply" or "EnhancedPrivacyModeEnabled" (1.3.1)
+* @param {String} key - Get config value corresponding to "key". This could be "AppStoreReviewUrl","FeedbackType","LaunchCountForReviewPrompt","PrefetchSolutions" or "AutoReply" 
 * @param {Function} success - Function to callback if a configuration value is obtained successfully (*required)
 * @param {Function} fail - Function to callback if method fails
 * @throws {Exception} 
@@ -133,15 +132,14 @@ Mobihelp.Init= function (success,fail)
 * @method AddCustomData
 * @param {String} key  - for the key value pair
 * @param {String} val  - for the key value pair
-* @param {Boolean} sensitive  - is this value sensitive. This has effect only if enhanced-privacy-mode is enabled (1.3.1)
 * @param {Function} success - Function to callback if AddCustomData completed successfully 
 * @param {Function} fail - Function to callback if AddCustomData failed
 */
-Mobihelp.AddCustomData= function (key,val,sensitive,success,fail)
+Mobihelp.AddCustomData= function (key,val,success,fail)
                     { success=success||function(){};
                     fail=fail||function(){};
-                    sensitive=sensitive||false;
-                     cordova.exec(success,fail, 'Wrap', 'customData',[key,val,sensitive]);}
+                    //sensitive=sensitive||false;
+                     cordova.exec(success,fail, 'Wrap', 'customData',[key,val,false]);}
 
 /**
 * Attaches the given text as a breadcrumb to the conversations/tickets.
@@ -183,18 +181,6 @@ Mobihelp.SetEmail= function (val,success,fail)
                      cordova.exec(success,fail, 'Wrap', 'setEmail',[val]);}                    
 
 /**
-* Clears saved data corresponding to specified key (1.3.1)
-*
-* @method Clear
-* @param {String} key - property to clear. this could be "CustomData" "BreadCrumbs" or "UserData" 
-* @param {Function} success - Function to callback if Clear is successfully 
-* @param {Function} fail - Function to callback if Clear failed
-*/
-Mobihelp.Clear= function (key,success,fail)
-                    { success=success||function(){};
-                    fail=fail||function(){};
-                     cordova.exec(success,fail, 'Wrap', 'clear',[key]);} /**
-/**
 * Clears saved user data (name , email)
 * @method ClearUserData
 * @param {Function} success - Function to callback if ClearUserData is successfully 
@@ -203,7 +189,7 @@ Mobihelp.Clear= function (key,success,fail)
 Mobihelp.ClearUserData= function (success,fail)
                     { success=success||function(){};
                     fail=fail||function(){};
-                     cordova.exec(success,fail, 'Wrap', 'clear',[UserData]);}                    
+                     cordova.exec(success,fail, 'Wrap', 'clear',['UserData']);}                    
 
 /**
 * Retrieve the number of unread items across all the conversations for the user synchronously i.e.
