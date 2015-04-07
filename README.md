@@ -17,12 +17,22 @@
          under the License.
 -->
 
-# org.apache.cordova.device
+# Freshdesk Mobihelp -cordova wrapper plugin
+The plugin makes use of official Freshdesk's Mobihelp SDK v1.3.0 for android. It implements Javascript methodes to invoke the inbuilt SDK features. The plugin includes a copy of Mobihelp SDK and Android support library appcompat_v7.
 
 Plugin documentation: [doc/index.html](doc/index.html)
 
-`INSTALLATION`
-cordova plugin add in.oxylab.mobihelp --searchpath ../ \
+**This plugin currently supports android only. iOS part is being worked upon**
+
+##INSTALLATION
+You have to create a freshdesh developer account, obtain an application key and secret to get it working. The integration guide is a good place to start. Note that you have to create a new app for Android in the controll panel to get the plugin work. 
+####[Integration Guide](http://developer.freshdesk.com/mobihelp/android/integration_guide)
+Once you have the application key and secret, replace with them, the placeholders in the following command.
+**`NB: Please install the plugin only after the required platforms are added`**
+```
+ cordova plugin add https://github.com/acashjos/mobihelp-cordova.git \
 --variable MOBI_URL='https://xxxxxxxx.freshdesk.com' \
 --variable MOB_AND_KEY='replace-with-long-android-app-key' \
---variable MOB_AND_SECRET='replace-with-long-android-app-secret'
+--variable MOB_AND_SECRET='replace-with-long-android-app-secret
+```
+[More technical details](http://developer.freshdesk.com/mobihelp/)
