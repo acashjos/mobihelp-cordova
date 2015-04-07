@@ -19,10 +19,10 @@
 
 # org.apache.cordova.device
 
-Plugin documentation: [doc/index.md](doc/index.md)
+Plugin documentation: [doc/index.html](doc/index.html)
 
 `INSTALLATION`
 cordova plugin add in.oxylab.mobihelp --searchpath ../ \
---variable MOBI_URL='https://oxylab.freshdesk.com' \
---variable MOB_AND_KEY='test-1-f5da355ccef38ebc8e91615b17751bba' \
---variable MOB_AND_SECRET='0d19828ce551952b48cbb35f3b39457ff4cc8494'
+--variable MOBI_URL='https://xxxxxxxx.freshdesk.com' \
+--variable MOB_AND_KEY='replace-with-long-android-app-key' \
+--variable MOB_AND_SECRET='replace-with-long-android-app-secret'

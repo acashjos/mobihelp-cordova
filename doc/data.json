@@ -1,0 +1,342 @@
+{
+    "project": {},
+    "files": {
+        "mobihelp.js": {
+            "name": "mobihelp.js",
+            "modules": {},
+            "classes": {
+                "Mobihelp": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {},
+    "classes": {
+        "Mobihelp": {
+            "name": "Mobihelp",
+            "shortname": "Mobihelp",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "mobihelp.js",
+            "line": 22,
+            "description": "Acts as an interface between Native (android) Mobihelp SDK and Cordova/Phonegap JS code",
+            "author": "Akash Kurian Jose",
+            "version": "0.5.1"
+        }
+    },
+    "classitems": [
+        {
+            "file": "mobihelp.js",
+            "line": 33,
+            "description": "Opens mobihelp support screen",
+            "itemtype": "method",
+            "name": "Support",
+            "params": [
+                {
+                    "name": "success",
+                    "description": "- Function to callback if support screen is opened successfully",
+                    "type": "Function"
+                },
+                {
+                    "name": "fail",
+                    "description": "- Function to callback if support screen opening failed",
+                    "type": "Function"
+                }
+            ],
+            "class": "Mobihelp"
+        },
+        {
+            "file": "mobihelp.js",
+            "line": 45,
+            "description": "Opens mobihelp Feedback screen",
+            "itemtype": "method",
+            "name": "Feedback",
+            "params": [
+                {
+                    "name": "success",
+                    "description": "- Function to callback if Feedback screen is opened successfully",
+                    "type": "Function"
+                },
+                {
+                    "name": "fail",
+                    "description": "- Function to callback if Feedback screen opening failed",
+                    "type": "Function"
+                }
+            ],
+            "class": "Mobihelp"
+        },
+        {
+            "file": "mobihelp.js",
+            "line": 57,
+            "description": "Opens mobihelp Conversations screen",
+            "itemtype": "method",
+            "name": "Conversations",
+            "params": [
+                {
+                    "name": "success",
+                    "description": "- Function to callback if Conversations screen is opened successfully",
+                    "type": "Function"
+                },
+                {
+                    "name": "fail",
+                    "description": "- Function to callback if Conversations screen opening failed",
+                    "type": "Function"
+                }
+            ],
+            "class": "Mobihelp"
+        },
+        {
+            "file": "mobihelp.js",
+            "line": 69,
+            "description": "Opens mobihelp RatingPrompt dialogue",
+            "itemtype": "method",
+            "name": "ShowRatingPrompt",
+            "params": [
+                {
+                    "name": "success",
+                    "description": "- Function to callback if RatingPrompt dialogue is opened successfully",
+                    "type": "Function"
+                },
+                {
+                    "name": "fail",
+                    "description": "- Function to callback if RatingPrompt dialogue opening failed",
+                    "type": "Function"
+                }
+            ],
+            "class": "Mobihelp"
+        },
+        {
+            "file": "mobihelp.js",
+            "line": 81,
+            "description": "Sets mobihelp configurations",
+            "itemtype": "method",
+            "name": "SetConf",
+            "params": [
+                {
+                    "name": "conf",
+                    "description": "- JSON conf object\n          {'AppStoreReviewUrl': (string),         //Android only\n          'FeedbackType': (string),              // \"ANONYMOUS\" , \"NAME_AND_EMAIL_REQUIRED\", \"NAME_REQUIRED\" (Same as FEEDBACK_TYPE_NAME_REQUIRED_AND_EMAIL_OPTIONAL in iOS)\n          'LaunchCountForReviewPrompt': (number),// Number of launches before rate prompt is shown\n          'PrefetchSolutions': (boolean),        // pre-load solutions\n          'AutoReply': (boolean),                // Show an auto reply when a ticket is submited\n          }",
+                    "type": "Object"
+                },
+                {
+                    "name": "success",
+                    "description": "- Function to callback if Feedback screen is opened successfully",
+                    "type": "Function"
+                },
+                {
+                    "name": "fail",
+                    "description": "- Function to callback if Feedback screen opening failed",
+                    "type": "Function"
+                }
+            ],
+            "class": "Mobihelp"
+        },
+        {
+            "file": "mobihelp.js",
+            "line": 100,
+            "description": "Gets configuration value for respective key passed",
+            "itemtype": "method",
+            "name": "GetConf",
+            "params": [
+                {
+                    "name": "key",
+                    "description": "- Get config value corresponding to \"key\". This could be \"AppStoreReviewUrl\",\"FeedbackType\",\"LaunchCountForReviewPrompt\",\"PrefetchSolutions\" or \"AutoReply\"",
+                    "type": "String"
+                },
+                {
+                    "name": "success",
+                    "description": "- Function to callback if a configuration value is obtained successfully (*required)",
+                    "type": "Function"
+                },
+                {
+                    "name": "fail",
+                    "description": "- Function to callback if method fails",
+                    "type": "Function"
+                }
+            ],
+            "throws": {
+                "description": "<pre>\n          GetConf(key (string),success (callback function),fail (callback function));\n          success callback must be defined and handle one parameter to receive config value",
+                "type": "Exception"
+            },
+            "class": "Mobihelp"
+        },
+        {
+            "file": "mobihelp.js",
+            "line": 117,
+            "description": "Initializes Mobihelp sdk with configuration specified using {{#crossLink \"Mobihelp/SetConf:method\"}}{{/crossLink}}",
+            "itemtype": "method",
+            "name": "Init",
+            "params": [
+                {
+                    "name": "success",
+                    "description": "- Function to callback if Mobihelp initialization is successfully",
+                    "type": "Function"
+                },
+                {
+                    "name": "fail",
+                    "description": "- Function to callback if Mobihelp initialization failed",
+                    "type": "Function"
+                }
+            ],
+            "class": "Mobihelp"
+        },
+        {
+            "file": "mobihelp.js",
+            "line": 129,
+            "description": "Adds custom key-value pairs which are attached to tickets",
+            "itemtype": "method",
+            "name": "AddCustomData",
+            "params": [
+                {
+                    "name": "key",
+                    "description": "- for the key value pair",
+                    "type": "String"
+                },
+                {
+                    "name": "val",
+                    "description": "- for the key value pair",
+                    "type": "String"
+                },
+                {
+                    "name": "success",
+                    "description": "- Function to callback if AddCustomData completed successfully",
+                    "type": "Function"
+                },
+                {
+                    "name": "fail",
+                    "description": "- Function to callback if AddCustomData failed",
+                    "type": "Function"
+                }
+            ],
+            "class": "Mobihelp"
+        },
+        {
+            "file": "mobihelp.js",
+            "line": 144,
+            "description": "Attaches the given text as a breadcrumb to the conversations/tickets.",
+            "itemtype": "method",
+            "name": "LeaveBreadCrumb",
+            "params": [
+                {
+                    "name": "text",
+                    "description": "- Text to be left as breadcrumb",
+                    "type": "String"
+                },
+                {
+                    "name": "success",
+                    "description": "- Function to callback if Feedback screen is opened successfully",
+                    "type": "Function"
+                },
+                {
+                    "name": "fail",
+                    "description": "- Function to callback if Feedback screen opening failed",
+                    "type": "Function"
+                }
+            ],
+            "class": "Mobihelp"
+        },
+        {
+            "file": "mobihelp.js",
+            "line": 157,
+            "description": "Set the full name of the user to be reported on the Freshdesk Portal.",
+            "itemtype": "method",
+            "name": "SetName",
+            "params": [
+                {
+                    "name": "val",
+                    "description": "- Full Name value",
+                    "type": "String"
+                },
+                {
+                    "name": "success",
+                    "description": "- Function to callback ifSetName is successfully",
+                    "type": "Function"
+                },
+                {
+                    "name": "fail",
+                    "description": "- Function to callback if SetName failed",
+                    "type": "Function"
+                }
+            ],
+            "class": "Mobihelp"
+        },
+        {
+            "file": "mobihelp.js",
+            "line": 170,
+            "description": "Set the email of the user to be reported on the Freshdesk Portal",
+            "itemtype": "method",
+            "name": "SetEmail",
+            "params": [
+                {
+                    "name": "val",
+                    "description": "- Email value",
+                    "type": "String"
+                },
+                {
+                    "name": "success",
+                    "description": "- Function to callback if SetEmail is successfully",
+                    "type": "Function"
+                },
+                {
+                    "name": "fail",
+                    "description": "- Function to callback if SetEmail failed",
+                    "type": "Function"
+                }
+            ],
+            "class": "Mobihelp"
+        },
+        {
+            "file": "mobihelp.js",
+            "line": 183,
+            "description": "Clears saved user data (name , email)",
+            "itemtype": "method",
+            "name": "ClearUserData",
+            "params": [
+                {
+                    "name": "success",
+                    "description": "- Function to callback if ClearUserData is successfully",
+                    "type": "Function"
+                },
+                {
+                    "name": "fail",
+                    "description": "- Function to callback if ClearUserData failed",
+                    "type": "Function"
+                }
+            ],
+            "class": "Mobihelp"
+        },
+        {
+            "file": "mobihelp.js",
+            "line": 194,
+            "description": "Retrieve the number of unread items across all the conversations for the user synchronously i.e.",
+            "itemtype": "method",
+            "name": "GetUnreadCount",
+            "params": [
+                {
+                    "name": "success",
+                    "description": "- Function to callback if Feedback screen is opened successfully (required)",
+                    "type": "Function"
+                },
+                {
+                    "name": "fail",
+                    "description": "- Function to callback if Feedback screen opening failed",
+                    "type": "Function"
+                }
+            ],
+            "throws": {
+                "description": "<pre>\nGetUnreadCount(key (string),success (callback function),fail (callback function));\nsuccess callback must be defined and handle one parameter to receive count \n</pre>",
+                "type": "Exception"
+            },
+            "class": "Mobihelp"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "unknown tag: version",
+            "line": " mobihelp.js:22"
+        }
+    ]
+}
