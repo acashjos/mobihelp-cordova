@@ -16,7 +16,9 @@
          specific language governing permissions and limitations
          under the License.
 -->
+**Update: 13 July 2015**
 
+**There is an official version available at https://github.com/freshdesk/mobihelp-phonegap . This is an unofficial version and will no longer be followed up**
 # Freshdesk Mobihelp -cordova wrapper plugin
 The plugin makes use of official Freshdesk's Mobihelp SDK v1.3.0 for android. It implements Javascript methodes to invoke the inbuilt SDK features. The plugin includes a copy of Mobihelp SDK and Android support library appcompat_v7.
 
